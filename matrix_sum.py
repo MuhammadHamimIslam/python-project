@@ -1,7 +1,8 @@
-A = []
-B = []
+rows = int(input("Enter the number of rows:"))
+cols = int(input("Enter the number of columns:"))
 
-def takeInp(matrix, rows, cols):
+def takeInp(rows, cols):
+  matrix = []
   for i in range(rows): 
     row = []
     for j in range(cols): 
@@ -19,13 +20,11 @@ def sumMatrix(matrix1, matrix2):
   return sumMat
 
 print("Enter value for Matrix A")  
-A = takeInp(A, 2, 2)
+A = takeInp(rows, cols)
 
 print("Enter value for Matrix B")
-B = takeInp(B, 2, 2)
+B = takeInp(rows, cols)
 
-print(A)
-print(B)
 
 C = sumMatrix(A, B)
 print(C)

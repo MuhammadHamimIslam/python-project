@@ -7,6 +7,7 @@ print("""1. Volume of sphere
 5. Perimeter of circle 
 6. Info about triangle 
 7. Surface of sphere 
+8. Get angle in a triangle 
 """)
 
 def sphereVol(radius):
@@ -64,6 +65,9 @@ def sphereSurf(radius):
   get the radius and apply the formula 4πr²
   """
   return 4 * math.pi * (radius ** 2)
+def angleTri(a, b, c): 
+  return 
+  
 while True:
   choice = input("Choose one or type /exit to exit the program: ")
   match choice: 
@@ -93,6 +97,11 @@ while True:
     case "7": 
       r = int(input("Enter the radius of sphere: "))
       print(sphereSurf(r))
+    case "8":
+      a = int(input("Enter a of the triangle: "))
+      b = int(input("Enter b of the triangle: "))
+      c = int(input("Enter c of the triangle: "))      
+      angleTri(a, b, c)
     case "/exit": break
     case _: 
       print("command not found")

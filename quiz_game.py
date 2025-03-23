@@ -18,7 +18,8 @@ def quiz(question, options, answer):
 def main(): 
     # quiz 1
     print("Answer the quiz no 1")
-    quiz("Who's the father of algorithm?", ("Al khawarejmi", "Newton", "Einstein", "Libnez"), "Al khawarejmi")
+    quiz("How many data types are there in python?", (6, 8, 10, 14, 15), ["15"])
+    
 
 
 

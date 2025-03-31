@@ -27,6 +27,11 @@ while True:
         isStarted = False
       else:
         print("car's already stopped!")
+    case "/status":
+        if isStarted:
+            print("Car is started!")
+        else:
+            print("Car is stopped!")    
     case "/exit":
       print("Successfully left the game!")
       break

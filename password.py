@@ -10,7 +10,6 @@ while attempt != 3: # max attempt is 3
 	
 	if password1 != password2:
 	 print("password not matched! Try again.")
-	 
 	else:
 		print("Password matched. Ready to enter")
 		break

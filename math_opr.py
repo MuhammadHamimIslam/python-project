@@ -65,8 +65,17 @@ def sphereSurf(radius):
   get the radius and apply the formula 4πr²
   """
   return 4 * math.pi * (radius ** 2)
-def angleTri(a, b, c): 
-  return 
+def angleTri(a, b, c):
+    # cosA = (b²+c²-2a²)/2bc 
+    cosA = (b ** 2 + c ** 2 - a ** 2) / (2 * b * c)
+    # now make cos^-1 to radian to degrees 
+    A = math.degrees(math.acos(cosA))
+    cosB = (c ** 2 + a ** 2 - b ** 2) / (2 * a * c)
+    B = math.degrees(math.degrees(cosB))
+    C = 180 - A - B # C = 180 - (A+B)
+
+    return (A, B, C)
+  
   
 while True:
   choice = input("Choose one or type /exit to exit the program: ")
@@ -101,7 +110,7 @@ while True:
       a = int(input("Enter a of the triangle: "))
       b = int(input("Enter b of the triangle: "))
       c = int(input("Enter c of the triangle: "))      
-      angleTri(a, b, c)
+      print(angleTri(a, b, c))
     case "/exit": break
     case _: 
       print("command not found")

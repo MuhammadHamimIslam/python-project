@@ -71,7 +71,7 @@ def angleTri(a, b, c):
     # now make cos^-1 to radian to degrees 
     A = math.degrees(math.acos(cosA))
     cosB = (c ** 2 + a ** 2 - b ** 2) / (2 * a * c)
-    B = math.degrees(math.degrees(cosB))
+    B = math.degrees(math.acos(cosB))
     C = 180 - A - B # C = 180 - (A+B)
 
     return (A, B, C)

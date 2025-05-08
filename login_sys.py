@@ -1,27 +1,37 @@
 import getpass
 
-allUserInfo = [
-    {
-    "username": "Hamim",
-    "email": "muhammadhamimislam47@gmail.com",
-    "password": "123",
-    "user_condition": "Verified"
-    },
-    {
-    "username": "x",
-    "email": "mrx@email.com",
-    "password": "456",
-    "user_condition": "not verified"
-    }
+all_user_info = users = [
+    {"email": "a@email.com", "password": "pass1"},
+    {"email": "b@email.com", "password": "pass2"},
+    {"email": "c@email.com", "password": "pass3"},
+    {"email": "d@email.com", "password": "pass4"},
+    {"email": "e@email.com", "password": "pass5"},
 ]
 
-while True:
-    print("Log in: ")
-    email = input("Enter the email address: ")
+def register(): 
+    email = input("Enter the email: ")
     password = getpass.getpass("Enter the password: ")
+    for user in all_user_info: 
+        if user["email"] != email: 
+            all_user_info.append({"email": email, "password": password})
+            print("Registration successful")
+            return 
+    print("User exists")
+
+# login 
+def login(): 
+    email = input("Enter the email: ")
+    password = getpass.getpass("Enter the password: ")
+    for user in all_user_info: 
+        if user["email"] == email and user["password"] == password: 
+            print("Login successful")
+            return 
+    print("login failed")
     
-    for i in allUserInfo: 
-        if email in i["email"]: 
-            print("User exists")
-        
-    break
+while True:
+    choice = input("Enter your choice: ")
+    match choice: 
+        case "1": register()
+        case "2": login()
+        case "3": break
+        case _: print("Invalid choice!")

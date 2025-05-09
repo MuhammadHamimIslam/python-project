@@ -1,25 +1,29 @@
 import getpass
+import json
 
-all_user_info = users = [
-    {"email": "a@email.com", "password": "pass1"},
-    {"email": "b@email.com", "password": "pass2"},
-    {"email": "c@email.com", "password": "pass3"},
-    {"email": "d@email.com", "password": "pass4"},
-    {"email": "e@email.com", "password": "pass5"},
-]
+def get_data(): 
+    with open('data/user_data.json') as f:
+        content = f.read()
+    return json.loads(content)
+
+
 
 def register(): 
+    all_user_info = get_data()
     email = input("Enter the email: ")
     password = getpass.getpass("Enter the password: ")
     for user in all_user_info: 
         if user["email"] != email: 
-            all_user_info.append({"email": email, "password": password})
+            #all_user_info.append({"email": email, "password": password})
+            with open('data/user_data.json', 'a') as f:
+                f.write('{"email": email, "password": password}')
             print("Registration successful")
             return 
     print("User exists")
 
 # login 
 def login(): 
+    all_user_info = get_data()
     email = input("Enter the email: ")
     password = getpass.getpass("Enter the password: ")
     for user in all_user_info: 

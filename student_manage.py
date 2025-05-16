@@ -7,7 +7,12 @@ c = conn.cursor() # pit the cursor
 """Create a table named students if it's not exists
 table column -> Name(TEXT), Age(INTEGER), ID_No(INTEGER), Address(TEXT), Date(TEXT ) (When it's updated)
 """
-c.execute("CREATE TABLE IF NOT EXISTS students (Name TEXT, Age INTEGER, ID_No INTEGER UNIQUE, Address TEXT, Date TEXT)")
+c.execute("""CREATE TABLE IF NOT EXISTS students (
+    Name TEXT,
+    Age INTEGER,
+    ID_No INTEGER UNIQUE,
+    Address TEXT,
+    Date TEXT)""")
 
 # add students to the database 
 def add_student(name, age, id_no, address):
@@ -80,12 +85,12 @@ def take_inp(prompt):
     prompt -> prompt while taking the input
     
     how it works:
-    run an infinite while loop then put a try, except block if user input is invalid it goes to except block. If user input is correct return the value and break the loop
+    run an infinite while loop then put a try, except block if user input is invalid it goes to except block. If user input is correct return the value by trimming whitespaces and break the loop
     """
     while True:
         try:
             data = input(prompt)
-            return data
+            return data.strip()
             break
         except ValueError:
             print("Enter a valid input")
@@ -116,7 +121,7 @@ while True:
             "if choice is 2 then take the necessary input the call update_student_info()"
             
             id_no = int(take_inp("Enter the ID No: "))
-            field = take_inp("Enter the field name to update: ")
+            field = take_inp("Enter the field name (Name, Age, ID_No, Address) to update: ")
             data = take_inp("Enter the correct data of the field: ")
             update_student_info(id_no, field, data)
         case "3":

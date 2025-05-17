@@ -90,6 +90,8 @@ def take_inp(prompt):
     while True:
         try:
             data = input(prompt)
+            if not data: 
+                raise ValueError
             return data.strip()
             break
         except ValueError:
@@ -121,7 +123,14 @@ while True:
             "if choice is 2 then take the necessary input the call update_student_info()"
             
             id_no = int(take_inp("Enter the ID No: "))
-            field = take_inp("Enter the field name (Name, Age, ID_No, Address) to update: ")
+            while True:
+                try:
+                    field = take_inp("Enter the field name (Name, Age, ID_No, Address) to update: ")
+                    if field not in ("Name", "Age", "ID_No", "Address"): 
+                        raise Exception
+                    break
+                except Exception:
+                    print("Field isn't valid!Please enter a valid one")
             data = take_inp("Enter the correct data of the field: ")
             update_student_info(id_no, field, data)
         case "3":

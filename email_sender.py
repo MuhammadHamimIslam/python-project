@@ -1,11 +1,11 @@
 import os
-from dotenv import load_env
+from dotenv import load_dotenv
 from email.message import EmailMessage 
 import ssl
 import smtplib
 import re
 
-load_env() # load env to secure the email and app password 
+load_dotenv() # load env to secure the email and app password 
 
 # take valid input 
 def take_inp(prompt):
@@ -20,8 +20,8 @@ def take_inp(prompt):
                 print("Enter a valid input")
 
 # securely load from .env file
-email_sender = os.get_env("EMAIL_SENDER") # sender email address 
-email_password = os.get_env("APP_PASSWORD") # email password 
+email_sender = os.getenv("EMAIL_SENDER") # sender email address 
+email_password = os.getenv("APP_PASSWORD") # email password 
 while True: 
         email_receiver = take_inp("Enter reciver's email address: ") # receiver email address
         if re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email_receiver): break

@@ -25,7 +25,7 @@ def generate_pass(length):
 	take the length as an argument.
 	list all of the characters. then shuffle the list to make it random. then create an empty list to store the password. Then choose a random item from the characters and append it to the password. finally join the list and return it 
 	"""
-	characters = list(string.ascii_letters +  string.digits + "+$#@*':;!?.%=/-") # all password characters 
+	characters = list(string.ascii_letters +  string.digits + "+$#@*':;!?.%=/^`-<>,_&[]{}()") # all password characters 
 	random.shuffle(characters) # shuffle the order
 	password = [] # password holder
 	for i in range(length):

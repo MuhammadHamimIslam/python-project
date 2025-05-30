@@ -17,14 +17,14 @@ def take_input(board):
             return True
         if is_board_full(board): 
             return False
-        ai_turn(board)
+        ai_move(board)
         print_board(board)
         if winner(board): 
             return True
     return False 
 
 # AI's move 
-def ai_turn(board): 
+def ai_move(board): 
     while True: 
         ai_turn = random.randint(0, 8)
         if board[ai_turn] == " ": 
